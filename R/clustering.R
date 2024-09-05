@@ -166,6 +166,11 @@ test_split <- function(data,ids1,ids2,var.genes,num_PCs,batch,
   check_means <- matrixStats::rowMins(sapply(unique(batch),function(b)
     Matrix::rowSums(true[var.genes,batch==b])))
   on_genes <- which(pnorm(phi_stat,lower.tail=FALSE)<0.05&check_means!=0)
+  
+  # Corner case: if fewer than 2 "on" genes
+  if (length(on_genes) < 2) {
+    return(1)
+  }
 
   # Fit model
   params <- fit_model(true[var.genes,],on_genes,batch,num_PCs)
