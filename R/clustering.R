@@ -167,8 +167,8 @@ test_split <- function(data,ids1,ids2,var.genes,num_PCs,batch,
     Matrix::rowSums(true[var.genes,batch==b])))
   on_genes <- which(pnorm(phi_stat,lower.tail=FALSE)<0.05&check_means!=0)
   
-  # Corner case: if fewer than 2 "on" genes
-  if (length(on_genes) < 2) {
+  # Corner case: if fewer than 5 "on" genes
+  if (length(on_genes) < 5) {
     return(1)
   }
 
