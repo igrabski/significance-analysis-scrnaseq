@@ -1,7 +1,7 @@
 Package: scSHC
 Type: Package
 Title: Significance Analysis for Clustering Single-Cell RNA-seq Data
-Version: 0.1.0
+Version: 0.1.0.9001
 Authors@R: 
     c(
         person(
